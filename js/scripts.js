@@ -37,7 +37,7 @@ var findQyqu = function(word) {
   var isu = wordArray[qid+1]
   var unum = wordArray.indexOf("u")
 
-  if (quid === 0) {
+  if (quid === 0 || quid === 1) {
     var ident = unum + 1
     var newWord = splitWord(word, ident)
     return addAy(newWord);
@@ -85,13 +85,14 @@ var pigLatin = function(word) {
     return output
   };
 
+  $(document).ready(function() {
+    $("form#piglatin").submit(function(event) {
+    $(".sentence").empty();
+      var sentence = $("input#sentence").val();
+      var result = sentences(sentence);
 
-
-
-// vowels.forEach(word[x]) > -1
-
-// var vowels = ["a","e","i","o","u"]
-//
-// var message = input.toLowerCase();
-//
-// var messageArray = message.split("");
+      $(".result").text(result);
+      $("#result").show();
+      event.preventDefault();
+    });
+  });
