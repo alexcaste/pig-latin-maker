@@ -21,12 +21,37 @@ describe('findCon', function() {
 
 describe('splitWord', function() {
   it("will split the word at a given number and append all characters before that number to the end of the word", function(){
-    expect(splitWord("horse", 1)).to.equal("orseh")
+    expect(splitWord("horse", 1)).to.equal("orseh");
   });
 });
 
+describe('findQyqu', function() {
+  it("will identify q y or qu in a word", function() {
+    expect(findQyqu("quail")).to.equal("ailquay");
+  });
+
+  it("will identify q y or qu in a word", function() {
+    expect(findQyqu("wall")).to.equal(false);
+  });
+});
+
+
 describe('pigLatin', function() {
-  it("will translates none q or y words inot pig latin", function() {
+  it("will translate single none q or y words into pig latin", function() {
     expect(pigLatin("horse")).to.equal("orsehay")
+  });
+
+  it("will translate single none q or y words into pig latin", function() {
+    expect(pigLatin("below")).to.equal("elowbay")
+  });
+
+  it("will translate single none q or y words into pig latin", function() {
+    expect(pigLatin("yellow")).to.equal("ellowyay")
+  });
+});
+
+describe('sentences', function() {
+  it("will return an array of words when given a sentence", function() {
+    expect(sentences("the team of awesome")).to.eql("ethay eamtay ofay awesomeay")
   });
 });
